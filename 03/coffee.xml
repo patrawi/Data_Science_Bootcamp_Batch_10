@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coffeestore>
+    <menu category="coffee">
+        <title lang="en">Americano</title>
+        <serve_type>Iced</serve_type>
+        <size>grande</size>
+        <price>30.00</price>
+    </menu>
+    <menu category="coffeee">
+        <title lang="en">Espresso</title>
+        <serve_type>Hot</serve_type>
+        <size>tall</size>
+        <price>29.99</price>
+    </menu>
+    <menu category="non-coffee">
+        <title lang="en">Hojicha Latte</title>
+        <serve_type>Frappe</serve_type>
+        <size>Venti</size>
+        <price>49.99</price>
+    </menu>
+    <menu category="non-coffee">
+        <title lang="en">Match Latte</title>
+        <serve_type>Iced</serve_type>
+        <size>Venti</size>
+        <price>39.95</price>
+    </menu>
+    <menu category="coffee">
+        <title lang="en">Coffee Latte</title>
+        <serve_type>Iced</serve_type>
+        <size>Grande</size>
+        <price>39.95</price>
+    </menu>
+</coffeestore>
