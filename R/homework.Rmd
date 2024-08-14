@@ -1,0 +1,102 @@
+---
+title: "Homework R batch 10"
+author: "p"
+date: "2024-07-20"
+output: html_document
+---
+
+## This is a homework for showing off my skill in visualising data into an information.
+
+### First, let's import the tidyverse library and diamonds data.
+
+```{r}
+library(tidyverse)
+print("Loaded library for data tinyverse")
+```
+
+## Prepare Data
+```{r}
+small_df <- diamonds %>% 
+  sample_n(1000)
+```
+## View data columns
+```{r}
+(small_df %>%
+   head(10))
+```
+## My First Chart Homework create 5 chart
+```{r}
+
+ggplot(small_df, aes(x = color)) +
+  geom_bar(fill = "salmon") +
+  geom_text(stat='count', aes(label=after_stat(count)), vjust=-0.5) +
+  labs(title = "The number of diamonds for each color",
+       caption = "Source: ggplot2 package",
+       x = "Color",
+       y = "Count")
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+###Price Distribution
+```{r}
+ggplot() +
+  theme_minimal() +
+  geom_histogram(data = small_df, mapping = aes(price),bins = 40, fill = "red", col = "black") +
+labs(title = "Price Distribution",
+       caption = "Source: ggplot2 package",
+       x = "Price",
+       y = "Count")
+
+```
+## Price vs Carat
+---
+```{r}
+ggplot() +
+  theme_minimal() +
+  geom_point(data = small_df, mapping = aes(carat, price, col = color)) +
+  facet_wrap(~ color, ncol = 4) + 
+  labs(title = "Price vs Carat", subtitle = "color sub-plot")
+```
+## Color vs Price:
+---
+```{r}
+ggplot(small_df, aes(x = color, y = price)) +
+  geom_boxplot(fill = "gold", color = "black", alpha = 0.2, notch = TRUE, outlier.fill = "red", outlier.color = "red", outlier.size = 3) + 
+  theme_minimal() +
+  facet_wrap(~ color)
+```
+Based on this graph, All of color has almost the same median lower than 5000
+
+## Cut Quality vs Price:
+---
+```{r}
+ggplot(small_df, aes(x = cut, y = price)) + 
+  geom_boxplot(fill = "gold" , color = "black" , alpha = 0.2, notch = TRUE, outlier.fill = "red", outlier.color = "red", outlier.size = 3)
+```
+
+## Mean Price per Carat
+```{r}
+ggplot(data = small_df, aes(x = carat, y = price)) +
+  geom_bar(fill = "salmon",na.rm = TRUE,width = 0.05,stat = "summary", fun = "mean",  position = "dodge")
+```
+
+### Proportion
+
+```{r}
+
+
+```
+
+```{r}
+ggplot(small_df, aes(x = "", fill =cut)) +
+  geom_bar(width = 1, stat = "count") +
+  coord_polar("y", start = 0) + 
+  theme_minimal() + 
+  geom_text(aes(label = after_stat(count), ),stat = "count", position = position_stack(vjust = 0.5)) +
+  labs(title = "Distribution of Diamond Cuts")
+              
+
+```
