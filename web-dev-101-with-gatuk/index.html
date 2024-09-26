@@ -1,46 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="index.js">
-    
-    <title>Web Development Gatuk</title>
-</head>
-<body>
-    <section class="title-section">
-        <h1>My Daily Mood</h1>
-        <h3>What's your mood today</h3>
-    </section>
-    <form class = "input-section">
-       
-         
-            <div>
-              <input
-                type="radio"
-                id="contactChoice1"
-                name="contact"
-                value="email"
-                checked />
 
-              <label for="contactChoice2">😀</label>
-        
-              <input type="radio" id="contactChoice3" name="contact" value="mail" />
-              <label for="contactChoice3">😐</label>
-              <input type="radio" id=""contactChoice3" name = "contact" value = "dog"/>
-              <label for="contactChoice1">😞</label>
-            
-              <input type="radio" id="contactChoice2" name="contact" value="phone" />
-            </div>
-            <input type="text" id="description" name = "description" placeholder="description" />
-            <div>
-              <button type="submit">Log my mood</button>
-            </div>
-         
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <script src = "index.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <title>Web Development Gatuk</title>
+</head>
+
+<body>
+  <section class = "card">
+    <div class="title-section">
+      <h1>My Daily Mood</h1>
+      <h3>What's your mood today ?</h3>
+    </div>
+    <form class="input-section">
+
+
+      <div class = 'buttons-group' id = 'mood-section'>
+       
+
+        <button onclick = "onMoodClicked('good')" class = 'emoji-button'>😀</button>
+        <button  onclick = "onMoodClicked('neutral')" class = 'emoji-button'>😕</button>
+        <button onclick = "onMoodClicked('bad')" class = 'emoji-button'>☹️</button>
+
+      </div>
+      <textarea id="w3review"  rows="4" cols="50" placeholder = "description"></textarea>
+      <div>
+        <button onclick = "onDescriptionSubmitted()" type="submit">Log my mood</button>
+      </div>
+
     </form>
-    <section class="mood-section">
+    <section>
+      <div class="mood-section">
         <h3>Mood List</h3>
+        <div style="background-color: green; width: 15px; height: 15px;"> </div>
+        <div style="background-color: red; width: 15px; height: 15px;"></div>
+        <div style="background-color: orange; width: 15px; height: 15px;"></div>
+        
+      </div>
+      <div id ='description-label'>Description: Glad to hear a good news</div>
     </section>
+  </section>
 </body>
+
 </html>
+
